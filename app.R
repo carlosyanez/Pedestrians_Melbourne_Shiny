@@ -16,6 +16,11 @@ if(!require(leaflet)) install.packages("leaflet", repos = "http://cran.us.r-proj
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 if(!require(lubridate)) install.packages("lubridate", repos = "http://cran.us.r-project.org")
 
+#Download
+
+dl <- "bootstrap.css"
+download.file("https://bootswatch.com/4/sandstone/bootstrap.css", dl)
+
 # Colour ranges for markers
 
 breaks <- c(0,200,3000,10000,Inf)
@@ -32,7 +37,6 @@ download.file("https://data.melbourne.vic.gov.au/api/views/h57g-5234/rows.csv?ac
 
 sensors <- read.csv(dl)
 sensors <- sensors %>% select(sensor_id,latitude,longitude,sensor_description) 
-
 
 # Shiny UI's function
 ui <- fluidPage(theme = "bootstrap.css",
