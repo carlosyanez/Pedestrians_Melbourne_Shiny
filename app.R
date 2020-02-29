@@ -34,10 +34,11 @@ gpo_lng <- 144.9568
 # Download and read list of sensors' names and coordinates
 dl <- tempfile()
 download.file("https://data.melbourne.vic.gov.au/api/views/h57g-5234/rows.csv?accessType=DOWNLOAD", dl)
-rm(dl)
 
 sensors <- read.csv(dl)
 sensors <- sensors %>% select(sensor_id,latitude,longitude,sensor_description) 
+
+rm(dl)
 
 # Shiny UI's function
 ui <- fluidPage(theme = "bootstrap.css",
